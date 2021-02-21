@@ -155,6 +155,17 @@ export default {
     methods:{
       submitted(){
         this.isSubmitted = true;
+        this.$http.post('https://jsonplaceholder.typicode.com/posts',{
+            Email : this.userData.email,
+            password: this.userData.password,
+            Age: this.userData.age,
+            Message: this.message,
+            sendMail: this.sendMail,
+            Gender: this.gender,
+            priority: this.selectedPriority
+        }).then((data)=>{
+            console.log(data);
+        })
       }
     },
     destroyed(){
